@@ -35,4 +35,24 @@ fn main() {
     // The character type, char.
     // Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
 
+    // Passing an value to a function is the same as assigning an value to a variable
+
+    let s = String::from("hello");
+    takes_ownership(s);
+
+    // println!("{}", s);
+    // this gives an error because the value of s was owned and dropped in takes_ownership
+
+    fn takes_ownership(some_string: String) {
+        println!("{}", some_string);
+    }
+
+    let x = 3;
+    makes_copy(x);
+    println!("no problem: {}", x);
+    // here it's ok because the value was copied into the makes_copy
+
+    fn makes_copy(some_integer: i32) {
+        println!("{}", some_integer);
+    }
 }
