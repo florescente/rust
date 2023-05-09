@@ -48,5 +48,5 @@ fn main() {
 
     println!("The result of the loop is {result}");
 
-    // Everything inside an curly braces can be an expression
+    // Everything inside a curly braces can be an expression
 }
