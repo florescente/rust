@@ -55,4 +55,28 @@ fn main() {
     fn makes_copy(some_integer: i32) {
         println!("{}", some_integer);
     }
+
+    // Borrowing is using references with &
+
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+
+    println!("the length of {} is: {}", s1, len);
+
+    fn calculate_length(some_string: &String) -> usize {
+        some_string.len()
+    }
+
+    // Borrowing is immutable by default
+
+    // let s = String::from("bex.gay");
+    let mut s = String::from("bex.gay");
+
+    change(&mut s);
+
+    println!("{}", s);
+
+    fn change(some_string: &mut String) {
+        some_string.push_str(" runs the world!");
+    }
 }
